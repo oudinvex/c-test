@@ -2,7 +2,8 @@
 #include<termios.h>
 #include<unistd.h>
 #include<errno.h>
-#include<mysql/mysql.h>
+#include</usr/local/mysql/include/mysql.h>
+
 #define ECHOFLAGS (ECHO | ECHOE | ECHOK | ECHONL)
 int set_disp_mode(int fd,int option);  
 int main()
@@ -13,10 +14,11 @@ int main()
 	MYSQL mysql;
 	mysql_init(&mysql);
 
-	if (!mysql_real_connect(&mysql,"localhost","user2","123456","shopdata",0,NULL,0))
+	if (!mysql_real_connect(&mysql,"127.0.0.1","user1","","shopdata",0,NULL,0))
 	{
 		fprintf(stderr, "Failed to connect to database: Error: %s\n",
 				mysql_error(&mysql));
+				return 0;
 	}
 	printf("请输入用户名：\n");
 	scanf("%s",&usr);
